@@ -1,5 +1,4 @@
-
-Triangle Total Accepted: 5596 Total Submissions: 21617My Submissions
+Triangle 
 
 
 
