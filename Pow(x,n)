@@ -1,0 +1,55 @@
+
+
+Pow(x, n) Total Accepted: 7990 Total Submissions: 30886My Submissions
+
+
+
+
+Implement pow(x, n). 
+This question looks simple, however it is not. In this question we have to consider the positive and negative situation of n. And we have the improve the efficiency of the algorithm. At last, integer overflow is a tricky problem in the context.
+
+First of all, if we consider n can only be positive, then we can have a intuitive and naive algorithm, 
+
+for(int i=0; i<n; i++) {
+     result *=x;
+}
+
+However, this is pretty slow. Actually, by compute the pow(x, n/2), and the times them back together and do it recursively, we can reduce the time complexity to O(log n). Let’s look at a very straight forward and understandable code.
+
+public class Solution {
+    public double pow(double x, int n) {
+        if (n == 0) return 1.0;
+    // Compute x^{n/2} and store the result into a temporary
+    // variable to avoid unnecessary computing
+    double half = pow(x, n / 2);
+    if (n % 2 == 0)
+        return half * half;
+    else if (n > 0)
+        return half * half * x;
+    else
+        return half * half / x;
+    }
+}
+
+This algorithm deals with all the situations in a very simple way. However, if you use this algorithm, you may miss/skip lots of the pitfalls in the question, losing lot of fun. Let’s look at another elegant solution I found in discuss leetcode.
+
+public class Solution {
+    public double pow(double x, int n) {
+        if(n==0) return 1.0;
+        double result = 1;
+        int i = Math.abs(n);
+        for(; i!=0; i=i>>>1) {
+            if( (i&1)!=0 ){
+            result *=x;
+            }
+            x *=x;
+        }
+        return n<0? 1.0/result: result;
+    }
+}
+
+The basic idea of the algorithm is that each bit in n is corresponding to x to the power of 2’s power except the first bit. So in each iteration, we do a x times x. And at last, base on the position or negative, we return a different result. 
+
+You can find out the in the for loop, we do an unsigned right shift for i, that is to prevent the incorrect result happening for the minimum value of integer. You should know that the abs vale for the minimum value is still the minimum value, which is a negative value.
+
+
