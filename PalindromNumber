@@ -1,0 +1,60 @@
+
+
+Palindrome Number Total Accepted: 7609 Total Submissions: 26356My Submissions
+
+
+
+
+Determine whether an integer is a palindrome. Do this without extra space.
+click to show spoilers.
+Some hints:
+Could negative integers be palindromes? (ie, -1)
+If you are thinking of converting the integer to string, note the restriction of using extra space.
+You could also try reversing an integer. However, if you have solved the problem "Reverse Integer", you know that the reversed integer might overflow. How would you handle such case?
+There is a more generic way of solving this problem. 
+
+Well, for this question. My original though is to reverse the input, and then if the reverse result is the same as the input, then it is a palindrome   number. However, we already get the hint that this might cause a overflow. For instance, in Java, the reverse result of 1000000003.
+
+Therefore, considering a palindrome number is symmetric, if we only reverse the first half of the number, and compare it with the second half of the input, then we can reach the same purpose.
+
+So, to implement this algorithm, I firstly get the length of the input by translating it into a string. This looks ugly. However let’s solve it first.
+I am using the mod and devision operation to get the first several high digit from the input. In this process, I have made a mistake, that is after getting the highest digit, I forgot to remove it, leading a false result in the next digit. We need to remember this when dealing with each digit of the number. Let’s look at the code.
+
+public class Solution {
+    public boolean isPalindrome(int x) {
+        if(x<0) return false;
+       
+        int length = Integer.toString(x).length();
+        if(length ==1 ) return true;
+        int half = length/2;
+        int reverse =0;
+        for(int i=0; i<half; i++) {
+            reverse = reverse+ x/(int)Math.pow(10,length-1)*(int)Math.pow(10,i);
+            x%=(int)Math.pow(10, length-1);
+            length--;
+        }
+        int left = x%(int)Math.pow(10,half);
+        return left==reverse? true: false;
+    }
+}
+
+This is accepted. Actually we don’t have to go through the first half, since if we find out that the corresponding pair digit in the number is not the same, we can already tell it is not a palindrome number. And to get the length of the number, we don’t need to transfer it into a string. Let’s look at another edition of the code:
+
+public class Solution {
+    public boolean isPalindrome(int x) {
+        if(x<0) return false;
+       
+        int div =1;
+        while(x/div>=10) {
+            div *=10;
+        }
+        while(x!=0) {
+            int l = x/div;
+            int r = x%10;
+            if(l != r) return false;
+            x = x%div/10;
+            div /= 100;
+        }
+        return true;
+    }
+}
