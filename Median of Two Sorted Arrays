@@ -1,0 +1,108 @@
+
+There are two sorted arrays A and B of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
+
+This question is a very tough one. At first, by looking at the hint, I know this  should use some thoughts similar to binary search, that is to reduce the size by half at each time so that we can reach the O(log (m+n)) time complexity. 
+
+Some initial thoughts is like, if we pick the median value of A and B, named a and b, then by comparing a and b, we should know that which values we should reduce. For instance, if a<b, the all the values before a in array A should be reduced as well as all the values larger than b in array B. However, I can see that this can lead to our target time complexity, cause I am reducing the size of the problem by half at each iteration. However, I don’t know when to stop the iteration, the base case can be very complicated since there can be odd and even total numbers of values. In addition, when being even number, the two middle values can be in the same array, which is difficult to deal with.
+
+Therefore, in order to solve this problem, I implement the naive thought came to my mind, that is to merge the two arrays, and return the median. This can be done with O(m+n) complexity.
+
+public class Solution {
+    public double findMedianSortedArrays(int A[], int B[]) {
+        int[] array = new int[A.length+B.length];
+        int l=0, r=0;
+        int i=0;
+        while(l<A.length && r<B.length) {
+            if(A[l]<B[r]) {
+                array[i++] = A[l++];
+            } else {
+                array[i++] = B[r++];
+            }
+        }
+        while(l<A.length) {
+            array[i++] = A[l++];
+        }
+        while(r<B.length) {
+            array[i++] = B[r++];
+        }
+        return i%2 ==0? (array[(i-1)>>1] + array[i>>1])/2.0 : array[i>>1];
+    }
+   
+}
+
+The code is very simple. And actually, since we only need to get the median value, so we don’t need the rearrange the two arrays. We just need to use two pointers pointing to the beginning of the two arrays. Then by comparing the two values, we can find out the K-th smallest value. This can achieve time complexity O(m+n /2) and O(1) space complexity.
+
+But still, we are not reaching the logarithm time complexity. I search in the internet, and finally has found out some quite awesome algorithms.
+
+The first one is I found in the following blog: 思维决定一切. This algorithm is very interesting and very straightforward to understand. The basic idea is to reduce the size of half of the K in each recursive call, K being the half of the size of the total elements. Since this not the algorithm I pick, I won’t go through it in detail. 
+
+The only problem I want to mention is that when dealing with the even number situation, this algorithm call the subroutine twice to get the two middle values. Therefore I suspense it will slow down the running speeding of this algorithm. It is a interesting and good algorithm though. And I believe it can be edited to overcome this small problem utilizing the methods we used in the following algorithm.
+
+public class Solution {
+    public double findMedianSortedArrays(int A[], int B[]) {
+        int m=A.length, n = B.length;
+        return hp(A, Math.max(0, (m+n)/2-n), Math.min(m-1, (m+n) / 2), B); 
+    }
+   
+    private double hp(int A[], int l, int r, int B[] ) {
+        int m=A.length, n = B.length;
+        if(l>r) {
+            return hp(B, Math.max(0, (m+n)/2-m), Math.min(n-1, (m+n) / 2), A);
+        }
+        int i = (l+r)/2;
+        int j = (m+n)/2 - i- 1;
+        if(j>=0&&A[i]<B[j]) {
+            return hp(A,i+1, r, B);
+        } else if (j< n - 1 && A[i]>B[j+1]) {
+            return hp(A, l, i-1, B);
+        } else {
+           if((m+n)%2 ==1)
+                return A[i];
+           if(i>0 && j>-1)
+                return (A[i] + Math.max(A[i-1], B[j]))/2.0;
+           if (i>0)
+                return (A[i] + A[i-1])/2.0;
+                return (A[i] + B[j])/2.0;
+           
+        }
+    }
+   
+}
+
+This algorithm is based on the solution provided by  Sophie’s solution. And before it is actually based on the algorithm form MIT handout. Next, I would like to talk about some tricky points in the algorithm.
+
+
+
+
+   * Lines 3 is true, because the median value must exists in the A[ Math.max(0, (m+n)/2-n)] ……A[ Math.min(m-1, (m+n) / 2] or B based on the definition of median value. 
+   * Let K be (m+n)2, and the helper function actually is finding the K+1 -th smallest element. Therefore, if the total number is odd, then the K+1 -th element should be the result; if it is even, then the K-th element should be either A[i-1] or B[j]. This can be easy to prove. However, before we prove this, we should understand why the algorithm is looking for the K+1 -th element.
+
+      * Let i and j being the index of two values in the two arrays, then we can have following inductions. 
+      * 
+
+      * You can find out more details about this idea in the post about Find the k-th Smallest Element in the Union of Two Sorted Arrays from 1337c0d3r.
+      * In this algorithm, we want to find an i which satisfies Bj<Ai<Bj+1, therefore we are looking for the K+1 -th element
+
+   * If(j>=0 &&A[i]<B[j], then we should know that values before A[i] (inclusively) should be smaller than the K+1 -th element, so we can remove them. We can prove this in the following process: Let’s say A[i] is the K+1 th element, then in A there are at most i elements smaller than A[i]. And in B there are at most j elements smaller than A[i]. Therefore, in total there are at most  i+j equals k-1 elements smaller than A[i], which is contrary to the assumption that A[i] is the K+1 -th element.
+   * In the same way, we can also prove that when (j<n-1 and A[i]>B[j+1), then all values after A[i] (inclusively) can be removed.
+   * Go back to line 9, now we know that if l>r, then the K+1 -th element can not be found in A. So we continue our search in B.
+   * When we find out the K+1-th value, odd number situation should be easy to finish. When it turns to even number, like we say above, the k-th element should be the the larger one between A[i-1] and B[j]. 
+
+      * If A[i-1]>B[j], then we have  B[j]<A[i-1]<B[j+1], given i-1+j+1 = k-1, then we should know A[i-1] is the k-th element, referring the inductions above.
+      * If B[j]>A[i-1], then we have A[i-1]<B[j]<A[i], given i+j = k-1, same thing!
+
+   * The last important thing is to consider when one of the array has no elements. You should understand why this algorithm can take care of that situation.
+
+      * Briefly the basis idea is that the  A[ Math.max(0, (m+n)/2-n)] ……A[ Math.min(m-1, (m+n) / 2] can prevent the empty array being A, which is first argument of the function. And Secondly, this can prevent j being less than -1 or larger than n-1. Therefore we can prevent the OutOfBoundary exception taken place.
+      * We can replace line 4 with the following code
+
+   * if(A.length<B.length) {
+            return hp(A, 0, A.length-1, B);
+        } else {
+            return hp(B, 0, B.length-1, A);
+        }
+
+
+
+
+
