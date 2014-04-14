@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 5.5 (402491)"/><meta name="author" content="zelin_zheng"/><meta name="created" content="2014-04-11 17:59:58 +0000"/><meta name="updated" content="2014-04-13 00:24:04 +0000"/><title>Regular Expression Matching</title></head><body style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;">
+<div>
+<div style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.63636302947998px; line-height: 18.18181800842285px; background-color: rgb(255, 255, 255);">
+<div style="box-sizing: border-box; min-height: 1px; padding-right: 15px; padding-left: 15px;">
+<div style="box-sizing: border-box; padding-bottom: 10px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238);">
+<h3 style="box-sizing: border-box; font-weight: 500; line-height: 1.1; font-size: 24px;">Regular Expression Matching</h3>
+ <span style="box-sizing: border-box; color: rgb(58, 135, 173); font-size: 13px; vertical-align: text-bottom;">Total Accepted: <strong style="box-sizing: border-box;">7967</strong></span> <span style="box-sizing: border-box; color: rgb(58, 135, 173); font-size: 13px; vertical-align: text-bottom;">Total Submissions: <strong style="box-sizing: border-box;">40824</strong></span><a href="http://oj.leetcode.com/problems/regular-expression-matching/submissions/" style="box-sizing: border-box; color: rgb(51, 51, 51); text-decoration: none; padding: 6px 12px; line-height: 1.428571429; text-align: center; white-space: nowrap; vertical-align: middle; cursor: pointer; border: 1px solid rgb(204, 204, 204); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; -webkit-user-select: none; float: right !important;">My Submissions</a></div>
+<div style="box-sizing: border-box;">
+<div style="box-sizing: border-box; min-height: 1px; padding-right: 15px; padding-left: 15px;">
+<div style="box-sizing: border-box; line-height: 30px; border-left-width: 3px; border-left-style: solid; border-left-color: rgb(221, 221, 221); padding-left: 20px; padding-bottom: 2px;">
+<p style="box-sizing: border-box;"/>
+<p style="box-sizing: border-box;">Implement regular expression matching with support for <code style="box-sizing: border-box; font-family: Monaco, Menlo, Consolas, 'Courier New', monospace; font-size: 12.727272033691406px; padding: 2px 4px; color: rgb(199, 37, 78); white-space: nowrap; background-color: rgb(249, 242, 244); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;">'.'</code> and <code style="box-sizing: border-box; font-family: Monaco, Menlo, Consolas, 'Courier New', monospace; font-size: 12.727272033691406px; padding: 2px 4px; color: rgb(199, 37, 78); white-space: nowrap; background-color: rgb(249, 242, 244); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;">'*'</code>.</p>
+<pre style="box-sizing: border-box; font-family: Monaco, Menlo, Consolas, 'Courier New', monospace; font-size: 13px; white-space: pre-wrap; padding: 9.5px; line-height: 1.428571429; word-break: break-all; word-wrap: break-word; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;">
+'.' Matches any single character.
+'*' Matches zero or more of the preceding element.
+
+The matching should cover the <b style="box-sizing: border-box;">entire</b> input string (not partial).
+
+The function prototype should be:
+bool isMatch(const char *s, const char *p)
+
+Some examples:
+isMatch("aa","a") → false
+isMatch("aa","aa") → true
+isMatch("aaa","aa") → false
+isMatch("aa", "a*") → true
+isMatch("aa", ".*") → true
+isMatch("ab", ".*") → true
+isMatch("aab", "c*a*b") → true
+
+</pre>
+<p style="box-sizing: border-box;"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="box-sizing: border-box; padding-left: 20px; padding-top: 12px; padding-bottom: 2px; font-size: 12px; color: rgb(51, 51, 51); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box;">Have you been asked this question in an interview?</span> Yes</div>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.63636302947998px; line-height: 18.18181800842285px; background-color: rgb(255, 255, 255);"><a href="http://oj.leetcode.com/discuss/oj/regular-expression-matching" style="box-sizing: border-box; color: rgb(255, 255, 255); text-decoration: none; padding: 6px 20px; font-size: 16px; line-height: 1.428571429; text-align: center; white-space: nowrap; vertical-align: middle; cursor: pointer; border: 1px solid rgb(76, 174, 76); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; -webkit-user-select: none; background-color: rgb(92, 184, 92);">Discuss</a></p>
+<div>
+<p style="padding: 0px; font-family: proxima-nova, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; text-rendering: optimizelegibility; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255);"><span style="padding: 0px; color: rgb(51, 51, 51); font-size: 29px; line-height: 34px; letter-spacing: -1px;">Java Solution</span></p>
+<p style="padding: 0px; font-family: proxima-nova, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; text-rendering: optimizelegibility; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255);">The following Java solution is accepted.</p>
+<div style="padding: 10px; color: rgb(17, 0, 0); background-color: rgb(249, 249, 249); border: 1px solid rgb(209, 209, 232); overflow-y: hidden; overflow-x: auto; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; border-top-left-radius: 4px; border-top-right-radius: 4px; line-height: 24px; font-family: proxima-nova, Helvetica, Arial, sans-serif; font-size: 16px;">
+<table style=" padding: 0px !important; border: none !important; border-collapse: collapse !important;">
+<tbody style=" padding: 0px;">
+<tr style=" padding: 0px;">
+<td style="background-image: none; padding: 0px !important; border: none !important; vertical-align: top !important;">
+<pre style="padding: 0px 4px !important; background-color: transparent !important; border: none !important; font-size: 13px !important; border-top-left-radius: 0px !important; border-top-right-radius: 0px !important; border-bottom-right-radius: 0px !important; border-bottom-left-radius: 0px !important; float: none !important; clear: none !important; overflow: visible !important; line-height: 16px !important; -webkit-box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px !important; box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px !important;">
+<span style=" padding: 0px; color: rgb(0, 0, 0); font-weight: bold;">public</span> <span style=" padding: 0px; color: rgb(0, 0, 0); font-weight: bold;">class</span> Solution <span style=" padding: 0px; color: rgb(0, 153, 0);">{</span>
+    <span style=" padding: 0px; color: rgb(0, 0, 0); font-weight: bold;">public</span> <span style=" padding: 0px; color: rgb(0, 0, 102); font-weight: bold;">boolean</span> isMatch<span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(0, 51, 153);">String</span> s, <span style=" padding: 0px; color: rgb(0, 51, 153);">String</span> p<span style=" padding: 0px; color: rgb(0, 153, 0);">)</span> <span style=" padding: 0px; color: rgb(0, 153, 0);">{</span>
+ 
+        <span style=" padding: 0px; color: rgb(0, 0, 0); font-weight: bold;">if</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span>p.<span style=" padding: 0px; color: rgb(0, 102, 51);">length</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">==</span> <span style=" padding: 0px; color: rgb(204, 102, 204);">0</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span>
+            <span style=" padding: 0px; color: rgb(0, 0, 0); font-weight: bold;">return</span> s.<span style=" padding: 0px; color: rgb(0, 102, 51);">length</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">==</span> <span style=" padding: 0px; color: rgb(204, 102, 204);">0</span><span style=" padding: 0px; color: rgb(51, 153, 51);">;</span>
+ 
+        <span style=" padding: 0px; color: rgb(102, 102, 102); font-style: italic;">//p's length 1 is special case    </span>
+        <span style=" padding: 0px; color: rgb(0, 0, 0); font-weight: bold;">if</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span>p.<span style=" padding: 0px; color: rgb(0, 102, 51);">length</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">==</span> <span style=" padding: 0px; color: rgb(204, 102, 204);">1</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">||</span> p.<span style=" padding: 0px; color: rgb(0, 102, 51);">charAt</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(204, 102, 204);">1</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">!=</span> <span style=" padding: 0px; color: rgb(0, 0, 255);">'*'</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span><span style=" padding: 0px; color: rgb(0, 153, 0);">{</span>
+            <span style=" padding: 0px; color: rgb(0, 0, 0); font-weight: bold;">if</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span>s.<span style=" padding: 0px; color: rgb(0, 102, 51);">length</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">&lt;</span> <span style=" padding: 0px; color: rgb(204, 102, 204);">1</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">||</span> <span style=" padding: 0px; color: rgb(0, 153, 0);">(</span>p.<span style=" padding: 0px; color: rgb(0, 102, 51);">charAt</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(204, 102, 204);">0</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">!=</span> <span style=" padding: 0px; color: rgb(0, 0, 255);">'.'</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">&amp;&amp;</span> s.<span style=" padding: 0px; color: rgb(0, 102, 51);">charAt</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(204, 102, 204);">0</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">!=</span> p.<span style=" padding: 0px; color: rgb(0, 102, 51);">charAt</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(204, 102, 204);">0</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span>
+                <span style=" padding: 0px; color: rgb(0, 0, 0); font-weight: bold;">return</span> <span style=" padding: 0px; color: rgb(0, 0, 102); font-weight: bold;">false</span><span style=" padding: 0px; color: rgb(51, 153, 51);">;</span>
+            <span style=" padding: 0px; color: rgb(0, 0, 0); font-weight: bold;">return</span> isMatch<span style=" padding: 0px; color: rgb(0, 153, 0);">(</span>s.<span style=" padding: 0px; color: rgb(0, 102, 51);">substring</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(204, 102, 204);">1</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span>, p.<span style=" padding: 0px; color: rgb(0, 102, 51);">substring</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(204, 102, 204);">1</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span><span style=" padding: 0px; color: rgb(51, 153, 51);">;</span>    
+ 
+        <span style=" padding: 0px; color: rgb(0, 153, 0);">}</span><span style=" padding: 0px; color: rgb(0, 0, 0); font-weight: bold;">else</span><span style=" padding: 0px; color: rgb(0, 153, 0);">{</span>
+            <span style=" padding: 0px; color: rgb(0, 0, 102); font-weight: bold;">int</span> len <span style=" padding: 0px; color: rgb(51, 153, 51);">=</span> s.<span style=" padding: 0px; color: rgb(0, 102, 51);">length</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span><span style=" padding: 0px; color: rgb(51, 153, 51);">;</span>
+ 
+            <span style=" padding: 0px; color: rgb(0, 0, 102); font-weight: bold;">int</span> i <span style=" padding: 0px; color: rgb(51, 153, 51);">=</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">-</span><span style=" padding: 0px; color: rgb(204, 102, 204);">1</span><span style=" padding: 0px; color: rgb(51, 153, 51);">;</span> 
+            <span style=" padding: 0px; color: rgb(0, 0, 0); font-weight: bold;">while</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span>i<span style=" padding: 0px; color: rgb(51, 153, 51);">&lt;</span>len <span style=" padding: 0px; color: rgb(51, 153, 51);">&amp;&amp;</span> <span style=" padding: 0px; color: rgb(0, 153, 0);">(</span>i <span style=" padding: 0px; color: rgb(51, 153, 51);">&lt;</span> <span style=" padding: 0px; color: rgb(204, 102, 204);">0</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">||</span> p.<span style=" padding: 0px; color: rgb(0, 102, 51);">charAt</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(204, 102, 204);">0</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">==</span> <span style=" padding: 0px; color: rgb(0, 0, 255);">'.'</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">||</span> p.<span style=" padding: 0px; color: rgb(0, 102, 51);">charAt</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(204, 102, 204);">0</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span> <span style=" padding: 0px; color: rgb(51, 153, 51);">==</span> s.<span style=" padding: 0px; color: rgb(0, 102, 51);">charAt</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span>i<span style=" padding: 0px; color: rgb(0, 153, 0);">)</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span><span style=" padding: 0px; color: rgb(0, 153, 0);">{</span>
+                <span style=" padding: 0px; color: rgb(0, 0, 0); font-weight: bold;">if</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span>isMatch<span style=" padding: 0px; color: rgb(0, 153, 0);">(</span>s.<span style=" padding: 0px; color: rgb(0, 102, 51);">substring</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span>i<span style=" padding: 0px; color: rgb(51, 153, 51);">+</span><span style=" padding: 0px; color: rgb(204, 102, 204);">1</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span>, p.<span style=" padding: 0px; color: rgb(0, 102, 51);">substring</span><span style=" padding: 0px; color: rgb(0, 153, 0);">(</span><span style=" padding: 0px; color: rgb(204, 102, 204);">2</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span><span style=" padding: 0px; color: rgb(0, 153, 0);">)</span>
+                    <span style=" padding: 0px; color: rgb(0, 0, 0); font-weight: bold;">return</span> <span style=" padding: 0px; color: rgb(0, 0, 102); font-weight: bold;">true</span><span style=" padding: 0px; color: rgb(51, 153, 51);">;</span>
+                i<span style=" padding: 0px; color: rgb(51, 153, 51);">++;</span>
+            <span style=" padding: 0px; color: rgb(0, 153, 0);">}</span>
+            <span style=" padding: 0px; color: rgb(0, 0, 0); font-weight: bold;">return</span> <span style=" padding: 0px; color: rgb(0, 0, 102); font-weight: bold;">false</span><span style=" padding: 0px; color: rgb(51, 153, 51);">;</span>
+        <span style=" padding: 0px; color: rgb(0, 153, 0);">}</span> 
+    <span style=" padding: 0px; color: rgb(0, 153, 0);">}</span>
+<span style=" padding: 0px; color: rgb(0, 153, 0);">}</span>
+</pre></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="padding: 0px; color: rgb(34, 34, 34); font-family: proxima-nova, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; background-color: rgb(255, 255, 255); float: none;"><ins style=" padding: 0px; border: none; visibility: visible; background-color: transparent;"><a href="http://www.programcreek.com/2012/12/leetcode-regular-expression-matching-in-java/">http://www.programcreek.com/2012/12/leetcode-regular-expression-matching-in-java/</a><br/></ins></div>
+</div>
+</div>
+<div style="padding: 0px; color: rgb(34, 34, 34); font-family: proxima-nova, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; background-color: rgb(255, 255, 255); float: none;"><br/></div>
+<div style="padding: 0px; color: rgb(34, 34, 34); font-family: proxima-nova, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; background-color: rgb(255, 255, 255); float: none;">Change the cope by using index not substring method:</div>
+<div style="padding: 0px; color: rgb(34, 34, 34); font-family: proxima-nova, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; background-color: rgb(255, 255, 255); float: none;"><br/></div>
+<div style="padding: 0px; color: rgb(34, 34, 34); font-family: proxima-nova, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; background-color: rgb(255, 255, 255); float: none;">public class Solution {</div>
+<div>   public boolean isMatch(String s, String p) {</div>
+<div> </div>
+<div>        if(p.length() == 0)</div>
+<div>            return s.length() == 0;</div>
+<div> </div>
+<div>        //p's length 1 is special case   </div>
+<div>        if(p.length() == 1 || p.charAt(1) != '*'){</div>
+<div>            if(s.length() &lt; 1 || (p.charAt(0) != '.' &amp;&amp; s.charAt(0) != p.charAt(0)))</div>
+<div>                return false;</div>
+<div>            return isMatch(s.substring(1), p.substring(1));   </div>
+<div> </div>
+<div>        }else{</div>
+<div>            int len = s.length();</div>
+<div> </div>
+<div>            int i = -1;</div>
+<div>            while(i&lt;len &amp;&amp; (i &lt; 0 || p.charAt(0) == '.' || p.charAt(0) == s.charAt(i))){</div>
+<div>                if(isMatch(s.substring(i+1), p.substring(2)))</div>
+<div>                    return true;</div>
+<div>                i++;</div>
+<div>            }</div>
+<div>            return false;</div>
+<div>        }</div>
+<div>    }</div>
+<div>}</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+</body></html>
