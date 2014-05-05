@@ -1,4 +1,4 @@
-public class Solution {
+public class AddTwoNumber {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         //just for git testing
         int tep = 0; 
