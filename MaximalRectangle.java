@@ -35,4 +35,38 @@ public class MaximalRectangle {
         }
         return ret;
     }
+    
+    public class Solution {
+    public int maximalRectangle2(char[][] matrix) {
+        int max = 0;
+        if(matrix == null || matrix.length==0 || matrix[0].length==0) return max;
+        
+        int m = matrix.length, n = matrix[0].length;
+        int area[][] = new int[n][n];
+        for(int i=0;i<m;i++){
+            int pre = -1;
+            for(int j=0;j<n;j++){
+                if(matrix[i][j] == '1') {
+                    if(pre==-1) pre = j;
+                    for(int k=0;k<pre;k++){
+                        area[k][j] = 0;
+                    }
+                    
+                    for(int k=pre;k<=j;k++){
+                        area[k][j] += j-k+1;
+                        max = Math.max(area[k][j], max);
+                    }
+                }else {
+                    pre = -1;
+                    for(int k=0;k<=j;k++){
+                        area[k][j] = 0;
+                    }
+                }
+            }
+        }
+        
+        return max;
+        
+    }
+}
 }
